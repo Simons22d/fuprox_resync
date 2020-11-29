@@ -7,10 +7,10 @@ from fuprox.models.models import (Branch, BranchSchema)
 link = "http://localhost:4000"
 
 # online socket link
-# socket_link = "http://159.65.144.235:5000/"
+socket_link = "http://159.65.144.235:5000/"
 
 #  offline socket link
-socket_link = "http://localhost:5000/"
+# socket_link = "http://localhost:5000/"
 
 # standard Python
 sio = socketio.Client()
