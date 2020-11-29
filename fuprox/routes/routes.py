@@ -46,5 +46,6 @@ while True:
     branches = Branch.query.all()
     for branch in branches:
         sio.emit("init_sync", {"key": branch.key_})
-        log("init offline synce √")
+        log("init offline synce")
+        print("__________sync__________")
     time.sleep(10)
