@@ -1,6 +1,7 @@
 import socketio
 from datetime import datetime
 import time
+import requests
 
 from fuprox.models.models import (Branch, BranchSchema)
 
@@ -41,11 +42,11 @@ except socketio.exceptions.ConnectionError:
     print("Error! Could not connect to the socket server.")
 
 
-
 while True:
     branches = Branch.query.all()
     for branch in branches:
-        sio.emit("init_sync", {"key": branch.key_})
-        log("init offline synce")
-        print("__________sync__________")
+        # sio.emit("init_sync", {"key": branch.key_})
+        requests.post("http://159.65.144.235:4000/init/sync/online", json={"key": branch.key_})
+        log("init offline sync")
+        # print("__________sync__________")
     time.sleep(10)
